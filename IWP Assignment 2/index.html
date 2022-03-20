@@ -1,0 +1,139 @@
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<!-- Popper JS -->
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+</script>
+<!-- Latest compiled JavaScript -->
+<script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+</script>
+<style>
+form label {
+  display: inline-block;
+  width: 100px;
+}
+
+form div {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input[type=text] {
+  border: 2px solid darkkhaki;
+  border-radius: 4px;
+}
+
+input[type=email] {
+  border: 2px solid rgb(66, 172, 66);
+  border-radius : 4px;
+}
+
+input[type=password] {
+  border: 2px solid cyan;
+  border-radius : 4px;
+}
+
+input[type=text]:focus{
+  background-color: yellow;
+}
+
+input[type=email]:focus {
+  background-color: orange;
+}
+
+input[type=password]:focus{
+  background-color: rgb(197, 106, 197);
+}
+
+input[type=submit]{
+  background-color: magenta;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  margin-left: 5px;
+  display: block;
+}
+
+label.error {
+  display: block;
+}
+    </style>
+<!--Form Design -->
+<h2 style="text-align : center;">Registration form</h2>
+<form id="first_form" method="post" action="">
+  <div>
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name"></input>
+  </div>
+  <div>
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name"></input>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"></input>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"></input>
+  </div>
+  <div>
+    <label for="password">Confirm Password:</label>
+    <input type="password" id="c_password" name="password"></input>
+  </div>
+  <div>
+    <input type="submit" value="Submit" />
+  </div>
+</form>
+
+<script>
+$(document).ready(function() {
+
+$('#first_form').submit(function(e) {
+  e.preventDefault();
+  var first_name = $('#first_name').val();
+  var last_name = $('#last_name').val();
+  var email = $('#email').val();
+  var password = $('#password').val();
+  var c_password = $('#c_password').val();
+
+  $(".error").remove();
+
+  if (first_name.length < 1) {
+    $('#first_name').after('<span class="error">This field is required</span>');
+  }
+  if (last_name.length < 1) {
+    $('#last_name').after('<span class="error">This field is required</span>');
+  }
+  if (email.length < 1) {
+    $('#email').after('<span class="error">This field is required</span>');
+  } else {
+    var regEx = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    var validEmail = regEx.test(email);
+    if (!validEmail) {
+      $('#email').after('<span class="error">Enter a valid email</span>');
+    }
+  }
+  if (password.length < 8) {
+    $('#password').after('<span class="error">Password must be at least 8 characters long</span>');
+  }
+
+  let confirmPasswordValue = $('#c_password').val();
+  let passwordValue = $('#password').val();
+  if (passwordValue != confirmPasswordValue) {
+      $('#c_password').after('<span class="error">Password dont match</span>');
+  }
+
+});
+
+});
+</script>
