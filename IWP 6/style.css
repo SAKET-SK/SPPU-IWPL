@@ -1,0 +1,60 @@
+.application {
+    background-color:green;
+    bottom: 0;
+    display: table;
+    font-family:"Segoe UI Light", Georgia, Serif;
+    font-size: 1rem;
+    height: 100%;
+    left: 0;
+    min-width: 37.5rem;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+.title-bar {
+    background-color: #000000;
+    color: white;
+    display: table-row;
+    font-weight: normal;
+    height: 0;
+    margin: 0;
+}
+.title-bar * {
+    padding:1rem;
+}
+.container {
+    background-color: white;
+    display: table-row;
+    height: 100%;
+    width: 100%;
+}
+.list {
+    border-right: solid 5px black;
+    float: left;
+    height: 100%;
+    max-width: 25rem;
+    min-width: 12.5rem;
+    width: 30%;
+}
+.list > div > div {
+    border-bottom: solid 1px black;
+    font-weight: bold;
+    height: 3rem;
+    padding: 0.5rem;
+}
+.list > div > div > div {
+    float:left;
+    width: 50%;
+}
+.list > div > div > div:last-child {
+    text-align: right;
+}
+
+.customHighLight{
+  background-color:cyan;
+}
+.error{
+  color:red;
+}

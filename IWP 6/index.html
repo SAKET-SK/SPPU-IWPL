@@ -1,0 +1,67 @@
+<html ng-app="paymentsApp">
+
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body ng-controller="PaymentsController as vm">
+    <div class="application">
+      <div class="title-bar">
+        <h1 id="paymentsApp-title">Payments-o-matic</h1>
+      </div>
+      <div class="container">
+        <div class="list">
+          <div ng-repeat="payment in vm.payments" id="paymentsApp-list-{{$index}}">
+           <div high-light item="{{payment}}">  
+              <div>{{payment.counterparty}}</div>
+              <div>{{payment.valueDate}}</div>
+           </div>
+          </div>
+        </div>
+        <div  ng-if="vm.isFormHidden">
+          <button id="paymentsApp-btn-new" ng-click="vm.handleNewPayment()">Create new payment</button>
+        </div>
+        <form name="paymentForm">
+        <div class="details" ng-if="!vm.isFormHidden" id="paymentsApp-detailsForm">
+          <div>
+            <div>
+              <label>Counterparty</label>
+              <input name="counterparty" ng-model="vm.selectedPayment.counterparty" id="paymentsApp-inpt-cpty" ng-maxlength="50" maxlength="50" ng-minlength="1" minlength="1" />
+              <span ng-show="paymentForm.counterparty.$touched && paymentForm.counterparty.$invalid">Error on counterparty field.</span>
+            </div>
+            <div>
+              <label>Value Date</label>
+              <input  name="valueDate" ng-model="vm.selectedPayment.valueDate" id="paymentsApp-inpt-date" />
+               <span ng-show="paymentForm.valueDate.$touched && paymentForm.valueDate.$invalid">Error on valueDate field.</span>
+            </div>
+            <div>
+              <label>Credit Account</label>
+              <input  name="creditAccount"  ng-model="vm.selectedPayment.creditAccount" id="paymentsApp-inpt-acc" ng-maxlength="8" maxlength="8" />
+              <span ng-show="paymentForm.creditAccount.$touched && paymentForm.creditAccount.$invalid">Error on creditAccount field</span>
+            </div>
+            <div>
+              <label>Amount</label>
+              <input  name="amount"  ng-model="vm.selectedPayment.amount" id="paymentsApp-inpt-amt"  />
+               <span ng-show="paymentForm.amount.$touched && paymentForm.amount.$invalid">Error on amount field.</span>
+            </div>
+            <div>
+              <label>Currency</label>
+              <input  name="currency" ng-model="vm.selectedPayment.currency" id="paymentsApp-inpt-cur" ng-maxlength="3" maxlength="3" />
+               <span ng-show="paymentForm.currency.$touched && paymentForm.currency.$invalid">Error on currency field</span>
+            </div>
+            <div>
+              <button  id="paymentsApp-btn-save" ng-disabled="paymentForm.$invalid" ng-click="vm.handleSave(paymentForm.$valid)">Save</button>
+              <button  id="paymentsApp-btn-cancel" ng-click="vm.handleCancel()">Cancel</button>
+              <button  id="paymentsApp-btn-delete" ng-if="!vm.newPayment" ng-click="vm.handleDelete()">Delete</button>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.6/angular.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+
+</html>

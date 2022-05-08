@@ -1,0 +1,153 @@
+.application {
+    background-color:green;
+    bottom: 0;
+    display: table;
+    font-family: 'Nunito';
+    font-size: 1rem;
+    height: 100%;
+    left: 0;
+    min-width: 37.5rem;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+input{
+    outline: none;
+}
+
+.title-bar {
+    background-color: #000000;
+    color: white;
+    display: table-row;
+    font-weight: normal;
+    height: 0;
+    margin: 0;
+}
+
+.title-bar * {
+    padding: 1rem 1rem 0rem 1rem;
+}
+
+.container {
+    background-color: white;
+    display: table-row;
+    height: 100%;
+    width: 100%;
+}
+
+.list {
+    border-right: solid 5px black;
+    float: left;
+    height: 100%;
+    max-width: 25rem;
+    min-width: 12.5rem;
+    width: 30%;
+}
+
+.list > div > div {
+    border-bottom: solid 1px black;
+    font-weight: bold;
+    height: 2.3rem;
+    padding: 0.5rem;
+}
+
+.list > div > div > div {
+    float:left;
+    width: 50%;
+}
+.list > div > div > div:last-child {
+    text-align: right;
+}
+
+.error{
+  color:red;
+}
+
+.pdg{
+    padding: 15px;
+}
+
+.mrgl{
+    margin-left: 150px;
+}
+
+.payDiv{
+    margin-top: 50px;
+}
+
+.fbutDiv{
+    margin-top: 15px;
+}
+
+.fbutton{
+    top:50%;
+    background-color:#0a0a23;
+    color: #fff;
+    border:none; 
+    border-radius: 10px; 
+    padding: 15px;
+    min-height: 30px; 
+    min-width: 150px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.fbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+.fbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.fbutton:hover span {
+    padding-right: 25px;
+}
+
+.fbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.butDiv{
+    margin-top: 15px;
+}
+
+.pbutton{
+    top:50%;
+    background-color:#0a0a23;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    min-height:30px; 
+    min-width: 50px;
+    margin-left: 150px;
+    cursor: pointer;
+}
+
+.sb:hover {
+    background-color:#31ad00;
+    transition: 0.3s;
+}
+
+.db:hover {
+    background-color:#d60b0b;
+    transition: 0.3s;
+}
+
+.cb:hover {
+    background-color:#002ead;
+    transition: 0.3s;
+}
